@@ -1,5 +1,5 @@
 import App from './App.vue'
-
+import store from './store';
 const host = 'https://unidemo.dcloud.net.cn/';
 
 // #ifndef VUE3
@@ -8,6 +8,7 @@ Vue.config.productionTip = false
 Vue.prototype.$serverUrl = host;
 App.mpType = 'app'
 const app = new Vue({
+	store,
   ...App
 })
 app.$mount()

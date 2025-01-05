@@ -1,7 +1,7 @@
 <template>
 	<view class="index">
-		<view class="grid">
-			<view class="grid-c-06" v-for="item in lists" :key="item.guid">
+		<!-- <view class="grid"> -->
+			<!-- <view class="grid-c-06" v-for="item in lists" :key="item.guid">
 				<view class="panel" @click="goDetail(item)">
 					<image class="card-img card-list2-img" :src="item.img_src"></image>
 					<text class="card-num-view card-list2-num-view">{{item.img_num}}P</text>
@@ -12,9 +12,11 @@
 						<view @click.stop="share(item)" class="card-share-view"></view>
 					</view>
 				</view>
-			</view>
-		</view>
-		<text class="loadMore">加载中...</text>
+			</view> -->
+			
+		<!-- </view> -->
+		<!-- <text class="loadMore">加载中...</text> -->
+		<web-view src="/static/dy.html"></web-view>
 	</view>
 </template>
 
