@@ -1,7 +1,7 @@
 <template>
 	<view class="center">
 		<view class="logo" @click="goLogin" :hover-class="!login ? 'logo-hover' : ''">
-			<image class="logo-img" :src="login ? uerInfo.avatar :avatarUrl"></image>
+			<image class="logo-img" :src="avatarUrl"></image>
 			<view class="logo-title">
 				<text class="uer-name">Hi，{{login ? uerInfo.wxName : '您未登录'}}</text>
 				<text class="go-login navigat-arrow" v-if="!login">&#xe65e;</text>
@@ -61,7 +61,6 @@
       this.login = uni.getStorageSync('login') || false;
       this.avatarUrl = uni.getStorageSync('avatarUrl') || this.avatarUrl;
       this.uerInfo = store.getters.userInfo || {};
-      console.log(this.login, this.uerInfo);
     },
     methods: {
 			goLogin() {

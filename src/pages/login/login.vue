@@ -7,7 +7,7 @@
           <input type="text" value="请输入手机号" v-model="phone" />
         </div>
         <div style="display: flex; justify-content: space-between">
-          <input type="text" value="密码" v-model="password" />
+          <input type="password" value="密码" v-model="password" />
 <!--          <input-->
 <!--            type="submit"-->
 <!--            :disabled="codeTime > 0"-->
@@ -16,8 +16,8 @@
 <!--            @click="getCode"-->
 <!--          />-->
         </div>
-        <div>
-          <input type="submit" value="登录" @click="getCode" />
+        <div style="padding-right: 25px">
+          <input type="submit" value="登录" @click="getCode" style=" text-align: center"/>
         </div>
       </div>
 
@@ -176,27 +176,9 @@ export default {
       if (!check.flag) {
         return this.$message.error(check.info);
       }
-      // if (this.authCode === "") {
-      //   return this.$message({
-      //     message: "请获取验证码登录!",
-      //   });
-      // } else if (this.authCode.length != 6) {
-      //   return this.$message({
-      //     message: "请输入正确的验证码!",
-      //   });
-      // }
-
       uni.showLoading({
         title: '加载中'
       });
-      // request.httpRequest(opts).then(res => {
-      //  uni.hideLoading();
-      //  if (res.statusCode == 200) {
-      //   this.message = res.data.data.length;
-      //  } else {
-      //   console.log('数据请求错误～');
-      //  }
-      // });
       let params = {
         loginType: "wxmini",
         // grantType: "wxmini",
@@ -221,23 +203,17 @@ export default {
                 name: "inviteCode",
               });
             }
-            uni.setStorageSync('avatarUrl', res.data.avatar);
+            uni.setStorageSync('avatarUrl', res.avatar);
             uni.setStorageSync('login', true);
-            // this.$hideLoading({
-            //   message: "登录成功",
-            //   type: "success",
-            // });
-            uni.showLoading({
+            uni.showToast({
               title: '登录成功',
               icon: 'success'
             });
-            // this.$router.replace({
-            //   name: "piazza",
-            // });
-            //返回上一级
-            // uni.navigateBack({
-            //   delta: 1
-            // })
+            //返回center页面
+            uni.reLaunch({
+              url: '/pages/center/center'
+            });
+
           })
           .catch(() => {
             // this.$hideLoading({

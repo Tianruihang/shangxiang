@@ -7,6 +7,8 @@ import Vue from 'vue'
 Vue.config.productionTip = false
 Vue.prototype.$serverUrl = host;
 App.mpType = 'app'
+import ElementUI from 'element-ui'
+Vue.use(ElementUI)
 const app = new Vue({
 	store,
   ...App

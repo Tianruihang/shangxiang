@@ -1,6 +1,21 @@
 {
-	"pages": [{
-			//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/lifo/lifo",
+			"style": {
+				"navigationBarTitleText": "礼佛",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/lifo/gongpin",
+			"style": {
+				"navigationBarTitleText": "贡品",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
 			"path": "pages/new/new",
 			"style": {
 				"navigationBarTitleText": "最新",
@@ -37,13 +52,7 @@
 				}
 			}
 		},
-		// {
-		// 	"path": "pages/lifo/lifo",
-		// 	"style": {
-		// 		"navigationBarTitleText": "礼佛",
-		// 		"enablePullDownRefresh": false
-		// 	}
-		// },
+
 		// {
 		// 	"path": "pages/fangsheng/fangsheng",
 		// 	"style": {
@@ -88,7 +97,7 @@
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
 		"list": [{
-				"pagePath": "pages/new/new",
+				"pagePath": "pages/lifo/lifo",
 				"iconPath": "static/index-0.png",
 				"selectedIconPath": "static/index-1.png",
 				"text": "最新"
