@@ -38,7 +38,11 @@
       </swiper>
       <view class="button-group">
         <navigator url="/pages/lifo/gongpin" hover-class="navigator-hover">
-          <u-button type="primary">供花供佛</u-button>
+          <button type="default" class="button-gf">供花供佛</button>
+        </navigator>
+        <!-- pages/lifo/fangsheng --->
+        <navigator url="/pages/lifo/fangsheng" hover-class="navigator-hover">
+          <button type="default" class="button-gf">放生</button>
         </navigator>
       </view>
     </view>
@@ -165,7 +169,14 @@ export default {
   height: 500px;
   margin: 0;
 }
-
+.button-gf{
+  width: 120px;
+  height: 40px;
+  //background-color: #ff0000;
+  //color: white;
+  border: none;
+  border-radius: 5px;
+}
 .bg {
   //height: 600px;
   width: 100%;

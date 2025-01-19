@@ -16,6 +16,13 @@
 			}
 		},
 		{
+			"path": "pages/lifo/fangsheng",
+			"style": {
+				"navigationBarTitleText": "放生",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
 			"path": "pages/new/new",
 			"style": {
 				"navigationBarTitleText": "最新",
