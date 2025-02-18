@@ -37,6 +37,13 @@
 			}
 		},
 		{
+			"path": "pages/hot/share",
+			"style": {
+				"navigationBarTitleText": "详签",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
 			"path": "pages/detail/detail",
 			"style": {
 				"navigationBarTitleText": "详情",

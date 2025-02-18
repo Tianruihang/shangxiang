@@ -3,11 +3,13 @@
     <div class="box">
       <div class="content">
         <h2 style="color: #960a0f">登录/注册</h2>
-        <div>
-          <input type="text" value="请输入手机号" v-model="phone" />
+        <h3 style="color: #960a0f">首次登录即为注册,请记住您的密码</h3>
+        <div class="input-div">
+          <input type="text" placeholder="请输入手机号"
+                 placeholder-style="color: #888;" v-model="phone" />
         </div>
-        <div style="display: flex; justify-content: space-between">
-          <input type="password" value="密码" v-model="password" />
+        <div class="input-div" style="display: flex; justify-content: space-between">
+          <input type="password" placeholder="请输入密码" v-model="password" />
 <!--          <input-->
 <!--            type="submit"-->
 <!--            :disabled="codeTime > 0"-->
@@ -19,12 +21,12 @@
         <div style="padding-right: 25px">
           <input type="submit" value="登录" @click="getCode" style=" text-align: center"/>
         </div>
+
       </div>
 
       <a href="#" class="btns register" @click="$router.go(-1)">返回</a>
     </div>
     <!-- 滑动验证 -->
-    >
 	<slider-verify :isShow="sliderVerifyFLag" @touchSliderResult="verifyResult" ref="verifyElement"></slider-verify>
     <!-- <Vcode :show="dialogVisible" @success="codeSuccess" :imgs="[img2, img1]"></Vcode> -->
   </div>
@@ -349,7 +351,7 @@ export default {
       opacity: 0.9;
     }
 
-    div {
+    .input-div {
       position: relative;
       width: 250px;
       border-radius: 25px;

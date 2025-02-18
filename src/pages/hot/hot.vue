@@ -16,7 +16,7 @@
 			
 		<!-- </view> -->
 		<!-- <text class="loadMore">加载中...</text> -->
-		<web-view src="/static/dy.html"></web-view>
+		<web-view src="/static/pray/index.html"></web-view>
 	</view>
 </template>
 
