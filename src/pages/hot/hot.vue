@@ -1,5 +1,5 @@
 <template>
-	<view class="index">
+	<view class="index"  style="flex: 1;">
 		<!-- <view class="grid"> -->
 			<!-- <view class="grid-c-06" v-for="item in lists" :key="item.guid">
 				<view class="panel" @click="goDetail(item)">
@@ -16,7 +16,8 @@
 			
 		<!-- </view> -->
 		<!-- <text class="loadMore">加载中...</text> -->
-		<web-view src="/static/pray/index.html"></web-view>
+		<web-view src="/static/pray/index.html" style="flex: 1; display: none"></web-view>
+    <web-view src="/static/pray/share.html?num=1" style="flex: 1;"></web-view>
 	</view>
 </template>
 
@@ -68,10 +69,10 @@
 		onPullDownRefresh() {
 			console.log('下拉刷新');
 			this.refreshing = true;
-			this.getData();
+			// this.getData();
 		},
 		onReachBottom() {
-			this.getData();
+			// this.getData();
 		},
 		methods: {
 			getData() {

@@ -71,12 +71,16 @@
             style="text-align: left"
             :style="'max-width:' + maxHeight + 'px;'"
           >
-            <vue-markdown
-              :breaks="true"
-              :typographer="true"
-              :linkify="true"
-              :source="replyText ? replyText : ''"
-            ></vue-markdown>
+<!--            <vue-markdown-->
+<!--              :breaks="true"-->
+<!--              :typographer="true"-->
+<!--              :linkify="true"-->
+<!--              :source="replyText ? replyText : ''"-->
+<!--            ></vue-markdown>-->
+            <u-parse :breaks="true"
+                     :typographer="true"
+                     :linkify="true"
+                     :source="replyText ? replyText : ''"></u-parse>
           </div>
           <div class="content-btn">
             <div class="text-length">{{ replyText.length }}字</div>
@@ -113,7 +117,8 @@
           <div class="scjl-item" v-for="item in toolLsjlList" :key="item.id">
             <div class="scjl-item_title">超级AI大脑</div>
             <div class="scjl-item_content">
-              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>
+<!--              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>-->
+              <u-parse v-highlight :source="item.chat_content"></u-parse>
             </div>
             <div class="scjl-item_bottom">
               <div class="scjl-item-time">{{ item.create_time }}</div>
@@ -154,14 +159,14 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import { getLastHistoryDataApi, storeApi, getfunhistoryApi } from "@/api/chat.js";
-import VueMarkdown from "vue-markdown";
 import website from "@/config/website";
 import { getStorage } from "@/utils/storage.js";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
+import uParse from "@/components/gaoyia-parse/parse.vue";
 export default {
   name: "chat-tool",
   components: {
-    VueMarkdown,
+    uParse,
   },
   props: {
     toolData: {

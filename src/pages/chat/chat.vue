@@ -1,51 +1,51 @@
 <template>
   <div class="chat">
     <div class="chat-tool">
-      <div class="tool_one">
-        <div class="tool_one-teg">工具</div>
-        <div
-          :class="oneIndex === i ? 'is_one-item' : ''"
-          class="tool_one-teg tool_one-item"
-          v-for="(item, i) in oneToolList"
-          :key="i"
-          @click="changeOne(i)"
-        >
-          {{ item.name }}
-        </div>
-      </div>
-      <div class="tool-content">
-        <div class="tool_two">
-          <div class="tool_two-box" ref="twoTabs" @mousewheel="ONMouseWheel($event)">
-            <div
-              class="tool_two-item"
-              :class="twoIndex === i ? 'is_two-item' : ''"
-              v-for="(item, i) in twoToolList"
-              :key="i"
-              @click="changeTwo($event, i)"
-            >
-              {{ item.name }}
-            </div>
-          </div>
-        </div>
-        <div class="tool_three">
-          <div class="tool_three-box" v-for="(item, i) in threeToolList" :key="i">
-            <div class="tool_three-title">{{ item.fun_name }}</div>
-            <div class="tool_three-content">
-              <div
-                class="grid-result"
-                v-for="(child, i2) in item.children"
-                :key="i2"
-                @click="changeMoreChat(child)"
-              >
-                <div class="img-box">
-                  <img style="width: 30px; height: 30px" :src="child.fun_icon" />
-                </div>
-                <div class="item-name">{{ child.fun_name }}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<!--      <div class="tool_one">-->
+<!--        <div class="tool_one-teg">工具</div>-->
+<!--        <div-->
+<!--          :class="oneIndex === i ? 'is_one-item' : ''"-->
+<!--          class="tool_one-teg tool_one-item"-->
+<!--          v-for="(item, i) in oneToolList"-->
+<!--          :key="i"-->
+<!--          @click="changeOne(i)"-->
+<!--        >-->
+<!--          {{ item.name }}-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="tool-content">-->
+<!--        <div class="tool_two">-->
+<!--          <div class="tool_two-box" ref="twoTabs" @mousewheel="ONMouseWheel($event)">-->
+<!--            <div-->
+<!--              class="tool_two-item"-->
+<!--              :class="twoIndex === i ? 'is_two-item' : ''"-->
+<!--              v-for="(item, i) in twoToolList"-->
+<!--              :key="i"-->
+<!--              @click="changeTwo($event, i)"-->
+<!--            >-->
+<!--              {{ item.name }}-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="tool_three">-->
+<!--          <div class="tool_three-box" v-for="(item, i) in threeToolList" :key="i">-->
+<!--            <div class="tool_three-title">{{ item.fun_name }}</div>-->
+<!--            <div class="tool_three-content">-->
+<!--              <div-->
+<!--                class="grid-result"-->
+<!--                v-for="(child, i2) in item.children"-->
+<!--                :key="i2"-->
+<!--                @click="changeMoreChat(child)"-->
+<!--              >-->
+<!--                <div class="img-box">-->
+<!--                  <img style="width: 30px; height: 30px" :src="child.fun_icon" />-->
+<!--                </div>-->
+<!--                <div class="item-name">{{ child.fun_name }}</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
     <div class="chat-content">
       <chat-detail

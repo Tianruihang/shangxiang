@@ -25,7 +25,9 @@
         "setting" : {
             "urlCheck" : false
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "appid" : "wxebf9ed6ab4fdfc29",
+        "permission" : {}
     },
     "mp-alipay" : {
         "usingComponents" : true

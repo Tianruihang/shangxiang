@@ -7,14 +7,20 @@
         <!-- <div class="info-content">{{currText}}</div> -->
         <div class="info-content markdown-body" :style="'max-width:' + maxHeight + 'px;'">
           <!-- <vue-markdown v-highlight :source="currText">this.item.message_content</vue-markdown> -->
-          <vue-markdown
-            :breaks="true"
-            :typographer="true"
-            :linkify="true"
-            :source="
-              item.message_content != '' ? item.message_content : item.loading_text
-            "
-          ></vue-markdown>
+<!--          <vue-markdown-->
+<!--            :breaks="true"-->
+<!--            :typographer="true"-->
+<!--            :linkify="true"-->
+<!--            :source="-->
+<!--              item.message_content != '' ? item.message_content : item.loading_text-->
+<!--            "-->
+<!--          ></vue-markdown>-->
+          <u-parse :breaks="true"
+          :typographer="true"
+          :linkify="true"
+          :source="
+          item.message_content != '' ? item.message_content : item.loading_text
+          "></u-parse>
         </div>
         <div class="btn-box">
           <div class="btn-item" @click="operationBtnFun('copy')">
@@ -74,12 +80,12 @@
 import { mapGetters } from "vuex";
 import { storeApi } from "@/api/chat";
 import LoadingView from "@/components/loading-view/loading-view.vue";
-import VueMarkdown from "vue-markdown";
+// import VueMarkdown from "vue-markdown";
 export default {
   name: "chat-detail-view",
   components: {
     LoadingView,
-    VueMarkdown,
+    // VueMarkdown,
   },
   props: {
     item: {

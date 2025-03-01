@@ -46,6 +46,7 @@
         </navigator>
       </view>
     </view>
+
     <!-- 空的瓶子 -->
     <div class="xx">
       <img :src="rau" style="width:30%"/>
@@ -62,10 +63,12 @@
 <!--        <el-button type="primary">供花供佛</el-button>-->
 <!--      </a>-->
 <!--    </el-button-group>-->
-
+    <Footer style="margin-top: 5%"/>
   </div>
 </template>
 <script>
+import Footer from "@/components/footer-beian.vue"
+import { setStorage, getStorage, removeStorage } from "@/utils/storage";
 
 export default {
   data() {
@@ -95,11 +98,17 @@ export default {
       that.imgHeight = `${that.$refs.imgHeight["0"].height}px`;
     };
   },
+  components: {
+    Footer
+  },
   methods: {},
   mounted() {
-    var rau = window.localStorage.getItem("flower");
-    var rbu = window.localStorage.getItem("xiang");
-    var rcu = window.localStorage.getItem("friut");
+    // var rau = window.localStorage.getItem("flower");
+    var rau = getStorage("flower");
+    // var rbu = window.localStorage.getItem("xiang");
+    var rbu = getStorage("xiang");
+    // var rcu = window.localStorage.getItem("friut");
+    var rcu = getStorage("friut");
     // alert(rau);
     if (rau == '' || rau == null || rau == undefined) {
 
@@ -119,7 +128,7 @@ export default {
 }
 .button-group{
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -184,7 +193,7 @@ export default {
 }
 
 .d_jump {
-  height: 100%;
+  height: 90%;
   width: 100%;
   //overflow: hidden;
   display: block;

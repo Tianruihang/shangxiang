@@ -124,6 +124,10 @@ const httpTokenRequest = (opts, data) => {
 					if (res.data.code == 200) {
 						resolve(res.data)
 					} else {
+						//跳转至登录页
+						uni.navigateTo({
+							url: '/pages/login/login'
+						});
 						resolve(res.data)
 						// uni.showToast({
 						// 	title: '' + res.data.message,

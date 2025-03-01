@@ -108,7 +108,7 @@
   </div>
 </template>
 <script>
-
+import { setStorage, getStorage, removeStorage } from "@/utils/storage";
 export default {
   name: "selectf",
   data() {
@@ -179,9 +179,12 @@ export default {
          title: '供奉成功',
          icon: 'none'
        })
-       window.localStorage.setItem("flower", this.rau)
-       window.localStorage.setItem("xiang", this.rbu)
-       window.localStorage.setItem("friut", this.rcu)
+       // window.localStorage.setItem("flower", this.rau)
+       setStorage({ key: "flower", value: this.rau });
+       // window.localStorage.setItem("xiang", this.rbu)
+       setStorage({ key: "xiang", value: this.rbu });
+       // window.localStorage.setItem("friut", this.rcu)
+       setStorage({ key: "friut", value: this.rcu });
        //等待2秒
         setTimeout(() => {
           this.paymoney = false;

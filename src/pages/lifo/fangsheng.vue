@@ -20,9 +20,9 @@
         <view class="yu" v-if="kindsyu">
           <img src="@/static/lifo/nq.png" class="img" @click="fs('@/static/lifo/nq.png')"/>
           <img src="@/static/lifo/cy.png" class="img" @click="fs('@/static/lifo/cy.png')"/>
-          <img src="@/static/lifo/jy.png" class="img" @click="fs('@/static/lifo/jy.png')"/>
+          <img src="@/static/lifo/jy.jpg" class="img" @click="fs('@/static/lifo/jy.png')"/>
           <img src="@/static/lifo/bl.png" class="img" @click="fs('@/static/lifo/bl.png')"/>
-          <img src="@/static/lifo/jiayu.png" class="img" @click="fs('@/static/lifo/jiayu.png')"/>
+          <img src="@/static/lifo/jiayu.jpg" class="img" @click="fs('@/static/lifo/jiayu.png')"/>
           <img src="@/static/lifo/wg.png" class="img" @click="fs('@/static/lifo/wg.png')"/>
         </view>
         <view class="popup-header">善有善报</view>
@@ -55,7 +55,7 @@ export default {
   data() {
     return {
         bg: {
-         backgroundImage: "url(" + require("@/static/lifo/fash2.png") + ")",
+         backgroundImage: "url(" + require("@/static/lifo/fash2.jpg") + ")",
          backgroundRepeat: "repeat",
          backgroundSize: "100% 100%",
    },

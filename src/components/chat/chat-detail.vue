@@ -33,21 +33,21 @@
           style="background-color: #960a0f"
           @click="chooseType('xjlt')"
         >
-          <span style="margin-right: 4px">+</span> 新建聊天
+          <span style="margin-right: 4px">+</span> 求佛解惑
         </div>
-        <div class="chat-option_teg" @click="chooseType('ltlb')">
-          <span class="iconfont icon-liebiaomoshi" style="margin-right: 4px"></span>
-          聊天列表
-        </div>
-        <div class="chat-option_teg" @click="chooseType('scjl')">
-          <span class="iconfont icon-shoucang" style="margin-right: 4px"></span> 收藏记录
-        </div>
+<!--        <div class="chat-option_teg" @click="chooseType('ltlb')">-->
+<!--          <span class="iconfont icon-liebiaomoshi" style="margin-right: 4px"></span>-->
+<!--          聊天列表-->
+<!--        </div>-->
+<!--        <div class="chat-option_teg" @click="chooseType('scjl')">-->
+<!--          <span class="iconfont icon-shoucang" style="margin-right: 4px"></span> 收藏记录-->
+<!--        </div>-->
         <div class="chat-model">
           <el-dropdown @command="recommendChange" placement="top">
-            <el-button type="warning" size="medium">
-              聊天模型: {{ modelValue }}
-              <i class="el-icon-arrow-up el-icon--right"></i>
-            </el-button>
+<!--            <el-button type="warning" size="medium">-->
+<!--              聊天模型: {{ modelValue }}-->
+<!--              <i class="el-icon-arrow-up el-icon&#45;&#45;right"></i>-->
+<!--            </el-button>-->
             <el-dropdown-menu>
               <template v-for="(item, index) in modelList">
                 <el-dropdown-item
@@ -140,7 +140,8 @@
           <div class="scjl-item" v-for="item in scjlList" :key="item.id">
             <div class="scjl-item_title">超级AI大脑</div>
             <div class="scjl-item_content">
-              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>
+<!--              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>-->
+              <u-parse v-highlight :source="item.chat_content"></u-parse >
             </div>
             <div class="scjl-item_bottom">
               <div class="scjl-item-time">{{ item.create_time }}</div>
@@ -195,7 +196,8 @@ import chatDetailView from "@/components/chat/chat-detail-view";
 import loadingView from "@/components/loading-view/loading-view.vue";
 import { disposeStringDataUtils } from "@/utils/util";
 import { mapGetters, mapActions } from "vuex";
-import VueMarkdown from "vue-markdown";
+// import VueMarkdown from "vue-markdown";
+import uParse from '@/components/gaoyia-parse/parse.vue'
 import website from "@/config/website";
 import { getStorage } from "@/utils/storage.js";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
@@ -207,7 +209,7 @@ export default {
   components: {
     chatDetailView,
     loadingView,
-    VueMarkdown,
+    uParse
   },
   data() {
     return {

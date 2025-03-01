@@ -43,11 +43,13 @@
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
 		</view>
+    <Footer style="margin-top: 70%"/>
 	</view>
 </template>
 
 <script>
 	import store from "@/store";
+  import Footer from "@/components/footer-beian.vue"
 
   export default {
 		data() {
@@ -57,6 +59,9 @@
 				uerInfo: {}
 			}
 		},
+    components: {
+      Footer
+    },
     onShow() {
       this.login = uni.getStorageSync('login') || false;
       this.avatarUrl = uni.getStorageSync('avatarUrl') || this.avatarUrl;

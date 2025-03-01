@@ -32,7 +32,7 @@
 		{
 			"path": "pages/hot/hot",
 			"style": {
-				"navigationBarTitleText": "最热",
+				"navigationBarTitleText": "求签",
 				"enablePullDownRefresh": true
 			}
 		},
@@ -120,7 +120,7 @@
 				"pagePath": "pages/hot/hot",
 				"iconPath": "static/hot-0.png",
 				"selectedIconPath": "static/hot-1.png",
-				"text": "推荐"
+				"text": "求签"
 			},
 			{
 				"pagePath": "pages/chat/chat",
