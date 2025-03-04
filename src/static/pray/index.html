@@ -71,6 +71,9 @@
 		<div style="position: absolute;top: 4.48rem;left: 0;width: 100%;text-align: center">
 			<img @click="chakan" style="width: 1.87rem;height: 0.48rem;" :src="ck">
 		</div>
+        <div style="position: absolute;top: 5.48rem;left: 0;width: 100%;text-align: center">
+            <img @click="reward" style="width: 1.87rem;height: 0.48rem;" :src="ds">
+        </div>
 	</div>
 	<!--蒙版-->
 	<div v-show="modalStatus" class="mio-modal-mask"></div>
@@ -117,6 +120,7 @@
                 downFive: './download-5.png',
                 ssq: './shangshangqian.png',
                 ck: './chakan.png',
+                ds: './reward.png',
                 gy: './gy_bj@2x.png',
                 yuanpan: './yuanpan@2x.png',
                 guang: './guang@2x.png',
@@ -159,6 +163,9 @@
             chakan() {
                 window.location.href = `./share.html?num=${this.num}`
             },
+            reward() {
+                window.location.href = `../reward/index.html`
+            }
         },
     })
 </script>

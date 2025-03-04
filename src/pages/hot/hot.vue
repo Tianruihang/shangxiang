@@ -16,8 +16,8 @@
 			
 		<!-- </view> -->
 		<!-- <text class="loadMore">加载中...</text> -->
-		<web-view src="/static/pray/index.html" style="flex: 1; display: none"></web-view>
-    <web-view src="/static/pray/share.html?num=1" style="flex: 1;"></web-view>
+		<web-view src="/static/pray/index.html" style="flex: 1;"></web-view>
+<!--    <web-view src="/static/pray/share.html?num=1" style="flex: 1;"></web-view>-->
 	</view>
 </template>
 
