@@ -104,11 +104,11 @@ export default {
   methods: {},
   mounted() {
     // var rau = window.localStorage.getItem("flower");
-    var rau = getStorage("flower");
+    var rau = getStorage({name:"flower"});
     // var rbu = window.localStorage.getItem("xiang");
-    var rbu = getStorage("xiang");
+    var rbu = getStorage({name:"xiang"});
     // var rcu = window.localStorage.getItem("friut");
-    var rcu = getStorage("friut");
+    var rcu = getStorage({name:"friut"});
     // alert(rau);
     if (rau == '' || rau == null || rau == undefined) {
 

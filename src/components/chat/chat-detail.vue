@@ -140,8 +140,8 @@
           <div class="scjl-item" v-for="item in scjlList" :key="item.id">
             <div class="scjl-item_title">超级AI大脑</div>
             <div class="scjl-item_content">
-<!--              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>-->
-              <u-parse v-highlight :source="item.chat_content"></u-parse >
+              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>
+<!--              <u-parse v-highlight :content="item.chat_content"></u-parse >-->
             </div>
             <div class="scjl-item_bottom">
               <div class="scjl-item-time">{{ item.create_time }}</div>
@@ -209,7 +209,7 @@ export default {
   components: {
     chatDetailView,
     loadingView,
-    uParse
+    'u-parse': uParse
   },
   data() {
     return {

@@ -6,21 +6,20 @@
         <div class="time">{{ item.message_time }}</div>
         <!-- <div class="info-content">{{currText}}</div> -->
         <div class="info-content markdown-body" :style="'max-width:' + maxHeight + 'px;'">
-          <!-- <vue-markdown v-highlight :source="currText">this.item.message_content</vue-markdown> -->
-<!--          <vue-markdown-->
-<!--            :breaks="true"-->
-<!--            :typographer="true"-->
-<!--            :linkify="true"-->
-<!--            :source="-->
-<!--              item.message_content != '' ? item.message_content : item.loading_text-->
-<!--            "-->
-<!--          ></vue-markdown>-->
-          <u-parse :breaks="true"
-          :typographer="true"
-          :linkify="true"
-          :source="
-          item.message_content != '' ? item.message_content : item.loading_text
-          "></u-parse>
+<!--           <vue-markdown v-highlight :source="currText">this.item.message_content</vue-markdown>-->
+          <vue-markdown
+              :breaks="true"
+              :typographer="true"
+              :linkify="true"
+              :source="item.message_content != '' ? item.message_content : item.loading_text
+            "
+          ></vue-markdown>
+<!--          <u-parse :breaks="true"-->
+<!--          :typographer="true"-->
+<!--          :linkify="true"-->
+<!--          :content="-->
+<!--          item.message_content != '' ? item.message_content : item.loading_text-->
+<!--          "></u-parse>-->
         </div>
         <div class="btn-box">
           <div class="btn-item" @click="operationBtnFun('copy')">
@@ -77,6 +76,8 @@
 </template>
 
 <script>
+import VueMarkdown from "vue-markdown";
+import uParse from '@/components/gaoyia-parse/parse.vue'
 import { mapGetters } from "vuex";
 import { storeApi } from "@/api/chat";
 import LoadingView from "@/components/loading-view/loading-view.vue";
@@ -85,7 +86,8 @@ export default {
   name: "chat-detail-view",
   components: {
     LoadingView,
-    // VueMarkdown,
+    uParse,
+    VueMarkdown,
   },
   props: {
     item: {
@@ -137,7 +139,7 @@ export default {
       handler(value) {
         this.store_status = value.store_status;
         // this.scrollToBottom()
-        // this.initFun()
+        this.initFun()
       },
       immediate: true,
     },
@@ -154,6 +156,7 @@ export default {
       if (this.item.view_type == "text") {
         let text = "";
         text = this.item.message_content;
+        console.log("text", text);
       } else if (
         this.item.view_type == "loading" &&
         this.sysConfig.chat_advert_message_flag === "true" &&

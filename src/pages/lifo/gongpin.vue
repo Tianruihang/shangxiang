@@ -180,11 +180,11 @@ export default {
          icon: 'none'
        })
        // window.localStorage.setItem("flower", this.rau)
-       setStorage({ key: "flower", value: this.rau });
+       setStorage({ name: "flower", content: this.rau });
        // window.localStorage.setItem("xiang", this.rbu)
-       setStorage({ key: "xiang", value: this.rbu });
+       setStorage({ name: "xiang", content: this.rbu });
        // window.localStorage.setItem("friut", this.rcu)
-       setStorage({ key: "friut", value: this.rcu });
+       setStorage({ name: "friut", content: this.rcu });
        //等待2秒
         setTimeout(() => {
           this.paymoney = false;
