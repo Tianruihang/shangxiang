@@ -19,6 +19,27 @@ export const loginBySocialApi = (params) => {
     return httpRequests(opts, {});
 	// return httpRequests(opts, params);
 }
+//根据refresh_token获取新token
+export const refreshTokenApi = (refresh_token, tenantId) => {
+    let opts ={
+        url: '/api/blade-auth/token?grantType=refresh_token',
+        method: 'post',
+    }
+    //将params内数据拼接到url上
+    let url = opts.url;
+    let params = {
+        tenantId,
+        refresh_token,
+        scope: "all",
+    }
+    if (params) {
+        for (let key in params) {
+            url += `&${key}=${params[key]}`;
+        }
+    }
+    opts.url = url;
+    return httpTokenRequests(opts, params);
+}
 
 // httpRequest({
 //     url: '/api/blade-auth/token',
@@ -43,27 +64,27 @@ export const loginBySocialApi = (params) => {
 //     }
 // });
 
-export const refreshTokenApi = (refresh_token, tenantId) => {
-    let opts ={
-        url: '/api/blade-auth/token?grantType=refresh_token',
-        method: 'post',
-    }
-    //将params内数据拼接到url上
-    let url = opts.url;
-    let params = {
-        tenantId,
-        refresh_token,
-        scope: "all",
-    }
-    if (params) {
-        for (let key in params) {
-            url += `&${key}=${params[key]}`;
-        }
-    }
-    opts.url = url;
-    return httpTokenRequests(opts, params);
-    // return httpRequests(opts, params);
-}
+// export const refreshTokenApi = (refresh_token, tenantId) => {
+//     let opts ={
+//         url: '/api/blade-auth/token?grantType=refresh_token',
+//         method: 'post',
+//     }
+//     //将params内数据拼接到url上
+//     let url = opts.url;
+//     let params = {
+//         tenantId,
+//         refresh_token,
+//         scope: "all",
+//     }
+//     if (params) {
+//         for (let key in params) {
+//             url += `&${key}=${params[key]}`;
+//         }
+//     }
+//     opts.url = url;
+//     return httpTokenRequests(opts, params);
+//     // return httpRequests(opts, params);
+// }
 
 //注销
 export const cancelUserApi = () => {
@@ -94,6 +115,22 @@ export const getUserInfo = () => {
     //     method: 'get',
     //     params: {},
     // })
+}
+//获取用户上香次数
+export const getIncenseCount = () => {
+    let opts = {
+        url: `/api/${website.apiRequestHead}/chat/ai/get/incense`,
+        method: 'get',
+    }
+    return httpTokenRequests(opts, {});
+}
+//增加用户上香次数
+export const addIncenseCount = () => {
+    let opts = {
+        url: `/api/${website.apiRequestHead}/chat/ai/add/incense`,
+        method: 'put',
+    }
+    return httpTokenRequests(opts, {});
 }
 
 // 发送短信验证码

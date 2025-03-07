@@ -1,5 +1,5 @@
 import { setStorage, getStorage, removeStorage } from "@/utils/storage";
-import { loginBySocialApi, getUserInfo, refreshTokenApi } from '@/api/system'
+import {loginBySocialApi, getUserInfo, refreshTokenApi, getIncenseCount} from '@/api/system'
 import { getSettingDataApi } from "@/api/user.js"
 
 const user = {
@@ -40,6 +40,14 @@ const user = {
             setStorage({
                 name: 'userInfo',
                 content: state.userInfo
+            })
+        },
+        // 设置用户上香次数
+        SET_USER_INCENSE(state, userIncense) {
+            state.userInfo.incenseCount = userIncense
+            setStorage({
+                name: 'userIncense',
+                content: state.data
             })
         },
         SET_IS_LOGIN(state, isLogin) {
@@ -93,6 +101,36 @@ const user = {
                         commit('SET_USER_INFO', userInfoRes.data);
                         resolve()
                     }).catch((err) => {
+                        resolve()
+                    })
+                } else {
+                    resolve()
+                }
+            })
+        },
+        //获取用户上香次数
+        getUserIncenseCount({ commit, state }) {
+            return new Promise((resolve) => {
+                if (state.isLogin) {
+                    getIncenseCount().then(res => {
+                        commit('SET_USER_INCENSE', res.data);
+                        resolve()
+                    }).catch(() => {
+                        resolve()
+                    })
+                } else {
+                    resolve()
+                }
+            })
+        },
+        //增加用户上香次数
+        addIncenseCount({ commit, state }) {
+            return new Promise((resolve) => {
+                if (state.isLogin) {
+                    getIncenseCount().then(res => {
+                        commit('SET_USER_INCENSE', res.data);
+                        resolve()
+                    }).catch(() => {
                         resolve()
                     })
                 } else {

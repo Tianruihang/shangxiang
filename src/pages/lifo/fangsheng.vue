@@ -13,7 +13,10 @@
 <!--  </span>-->
 <!--</el-dialog>-->
     <button class="btn" @click="openPopup">意念放生</button>
-
+<!--    <div style="position: absolute;left: 0;width: 100%;text-align: center">-->
+      <img @click="reward" style="margin: 5%" src="@/static/pray/reward.png">
+      <web-view src="/static/reward/index.html" v-if="showWebView" style="flex: 1;"></web-view>
+<!--    </div>-->
     <!-- 弹窗内容 -->
     <uni-popup ref="popup" type="center" :mask-click="false">
       <view class="popup-content">
@@ -54,16 +57,17 @@ export default {
    name: 'fash',
   data() {
     return {
-        bg: {
-         backgroundImage: "url(" + require("@/static/lifo/fash2.jpg") + ")",
-         backgroundRepeat: "repeat",
-         backgroundSize: "100% 100%",
-   },
-    num: 1,
-    myimg:'',
-    dialogVisible: false,
-    kindsyu:false,
-    pay:false,
+      bg: {
+       backgroundImage: "url(" + require("@/static/lifo/fash2.jpg") + ")",
+       backgroundRepeat: "repeat",
+       backgroundSize: "100% 100%",
+      },
+      showWebView: false,
+      num: 1,
+      myimg:'',
+      dialogVisible: false,
+      kindsyu:false,
+      pay:false,
     };
   },
    methods: {
@@ -111,7 +115,10 @@ export default {
        this.pay=true;
        this.myimg=params
       //关闭鱼种类窗口，打开一个新的窗口
-    }
+    },
+     reward() {
+      this.showWebView=true
+     }
   },
   mounted() {
  

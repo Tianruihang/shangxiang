@@ -2,29 +2,6 @@
   <div class="bg" :style="bg">
     <!-- 选择的贡品 -->
     <div class="result">
-<!--      <el-row :gutter="20" v-if="selector">-->
-<!--        <el-col :span="8">-->
-<!--          <div style="font-size:12px">-->
-<!--            <span class="demonstration">{{ra}}</span>-->
-<!--            <image style="width:65px; height: 100px" :src="rau" v-show="ras"></image>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        <el-col :span="8">-->
-<!--          <div style="font-size:12px">-->
-<!--            <span class="demonstration">{{rb}}</span>-->
-<!--            <image style="width: 65px; height: 100px" :src="rbu" v-show="rbs"></image>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        <el-col :span="8">-->
-<!--          <div style="font-size:12px">-->
-<!--            <span class="demonstration">{{rc}}</span>-->
-<!--            <image style="width: 65px; height: 100px" :src="rcu" v-show="rcs"></image>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--      </el-row>-->
-<!--      <el-row v-else>-->
-<!--        <el-col :span="24" style="font-size:22px">请选择三样贡品</el-col>-->
-<!--      </el-row>-->
       <uni-row :gutter="2" v-if="selector">
         <uni-col :span="8">
           <view class="block">
@@ -45,6 +22,9 @@
           </view>
         </uni-col>
       </uni-row>
+      <view v-else>
+        <view style="font-size: 22px; text-align: center">您已上供了{{incense}}次了</view>
+      </view>
       <view v-else>
         <view style="font-size: 22px; text-align: center">请选择三样贡品</view>
       </view>
@@ -86,6 +66,9 @@
     <div class="sure">
       <button type="danger" @click="drawer" style="margin-left: 20%;width: 60%">确认贡品</button>
     </div>
+    <div style="position: absolute;left: 0;width: 100%;text-align: center">
+      <img @click="reward" style="width: 1.87rem;height: 0.48rem;" :src="ds">
+    </div>
     <div class="pay" v-show="paymoney">
       <img src="@/static/lifo/hongbao.png" class="image-gf" />
       <div class="money">
@@ -109,6 +92,7 @@
 </template>
 <script>
 import { setStorage, getStorage, removeStorage } from "@/utils/storage";
+import {addIncenseCount,getIncenseCount} from "@/api/system";
 export default {
   name: "selectf",
   data() {
@@ -118,8 +102,10 @@ export default {
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% 100%"
       },
+      ds:  "url(" + require("@/static/pray/reward.png") + ")",
       direction: "btt",
       input: 1,
+      incense: 0,
       ras: false,
       rbs: false,
       rcs: false,
@@ -174,6 +160,7 @@ export default {
       this.paymoney=false;
      },
      surepay:function(){
+       this.addUserIncenseCount();
        //把三个参数存储起来
        uni.showToast({
          title: '供奉成功',
@@ -193,9 +180,29 @@ export default {
             url: '/pages/lifo/lifo'
           });
         }, 2000);
-   }
+    },
+    //获取用户供奉的数量
+    getUserIncenseCount: function (){
+        getIncenseCount().then(res => {
+          if (res && res.code == 200) {
+            this.incense = res.data.count;
+          }
+        })
+    },
+    //增加用户供奉的数量
+    addUserIncenseCount: function (){
+      addIncenseCount().then(res => {
+        this.incense = this.incense + 1;
+      })
+    },
+    reward() {
+      window.location.href = `../reward/index.html`
+    }
+
   },
- 
+  onLoad(query) {
+    this.getUserIncenseCount();
+  },
   mounted() {}
 };
 </script>
