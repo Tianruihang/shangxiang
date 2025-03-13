@@ -140,7 +140,8 @@
           <div class="scjl-item" v-for="item in scjlList" :key="item.id">
             <div class="scjl-item_title">超级AI大脑</div>
             <div class="scjl-item_content">
-              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>
+<!--              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>-->
+              <ua-markdown :source="item.message_content != '' ? item.message_content : item.loading_text" :showLine="false" />
 <!--              <u-parse v-highlight :content="item.chat_content"></u-parse >-->
             </div>
             <div class="scjl-item_bottom">
@@ -201,12 +202,14 @@ import uParse from '@/components/gaoyia-parse/parse.vue'
 import website from "@/config/website";
 import { getStorage } from "@/utils/storage.js";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
+import UaMarkdown from "../ua-markdown/ua-markdown.vue";
 export default {
   name: "chat-detail",
   props: {
     changeMoreChat: Function,
   },
   components: {
+    UaMarkdown,
     chatDetailView,
     loadingView,
     'u-parse': uParse

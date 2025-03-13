@@ -63,7 +63,7 @@
 <!--        <el-button type="primary">供花供佛</el-button>-->
 <!--      </a>-->
 <!--    </el-button-group>-->
-    <Footer style="margin-top: 5%"/>
+    <Footer />
   </div>
 </template>
 <script>
