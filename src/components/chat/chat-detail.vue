@@ -140,8 +140,8 @@
           <div class="scjl-item" v-for="item in scjlList" :key="item.id">
             <div class="scjl-item_title">超级AI大脑</div>
             <div class="scjl-item_content">
-<!--              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>-->
-              <ua-markdown :source="item.message_content != '' ? item.message_content : item.loading_text" :showLine="false" />
+              <vue-markdown v-highlight :source="item.chat_content"></vue-markdown>
+<!--              <ua-markdown :source="item.message_content != '' ? item.message_content : item.loading_text" :showLine="false" />-->
 <!--              <u-parse v-highlight :content="item.chat_content"></u-parse >-->
             </div>
             <div class="scjl-item_bottom">
@@ -197,22 +197,23 @@ import chatDetailView from "@/components/chat/chat-detail-view";
 import loadingView from "@/components/loading-view/loading-view.vue";
 import { disposeStringDataUtils } from "@/utils/util";
 import { mapGetters, mapActions } from "vuex";
-// import VueMarkdown from "vue-markdown";
+import VueMarkdown from "vue-markdown";
 import uParse from '@/components/gaoyia-parse/parse.vue'
 import website from "@/config/website";
 import { getStorage } from "@/utils/storage.js";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
-import UaMarkdown from "../ua-markdown/ua-markdown.vue";
+// import UaMarkdown from "../ua-markdown/ua-markdown.vue";
 export default {
   name: "chat-detail",
   props: {
     changeMoreChat: Function,
   },
   components: {
-    UaMarkdown,
+    // UaMarkdown,
     chatDetailView,
     loadingView,
-    'u-parse': uParse
+    'u-parse': uParse,
+    VueMarkdown
   },
   data() {
     return {
@@ -537,7 +538,7 @@ export default {
 
       let index = this.msgList.length - 1;
       let that = this;
-      fetchEventSource(`http://101.126.5.141:9872/api/${website.apiRequestHead}/chat/ai/send/question`, {
+      fetchEventSource(`https://backup.atmshop.top/api/${website.apiRequestHead}/chat/ai/send/question`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

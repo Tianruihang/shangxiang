@@ -7,7 +7,7 @@ const httpRequest = (opts, data) => {
 	if(opts.type == 2){
 		baseUrl = 'http://127.0.0.1:9885';
 	}else{
-		baseUrl = 'http://101.126.5.141:9872';
+		baseUrl = 'https://backup.atmshop.top';
 		// baseUrl = 'http://127.0.0.1:9872';
 	}
 	uni.onNetworkStatusChange(function(res) {
@@ -87,7 +87,7 @@ const httpTokenRequest = (opts, data) => {
 	if(opts.type == 2){
 		baseUrl = 'https://www.zhoukaiwen.com/';
 	}else{
-		baseUrl = 'http://101.126.5.141:9872';
+		baseUrl = 'https://backup.atmshop.top';
 		// baseUrl = 'http://127.0.0.1:9872';
 	}
 	uni.onNetworkStatusChange(function(res) {

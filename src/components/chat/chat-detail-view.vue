@@ -7,16 +7,16 @@
         <!-- <div class="info-content">{{currText}}</div> -->
         <div class="info-content markdown-body" :style="'max-width:' + maxHeight + 'px;'">
 <!--           <vue-markdown v-highlight :source="currText">this.item.message_content</vue-markdown>-->
-<!--          <vue-markdown-->
-<!--              :breaks="true"-->
-<!--              :typographer="true"-->
-<!--              :linkify="true"-->
-<!--              :source="item.message_content != '' ? item.message_content : item.loading_text-->
-<!--            "-->
-<!--          ></vue-markdown>-->
+          <vue-markdown
+              :breaks="true"
+              :typographer="true"
+              :linkify="true"
+              :source="item.message_content != '' ? item.message_content : item.loading_text
+            "
+          ></vue-markdown>
               <!-- 使用 v-html 渲染解析后的 Markdown -->
 <!--              <view v-html="compiledMarkdown"></view>-->
-              <ua-markdown :source="item.message_content != '' ? item.message_content : item.loading_text" :showLine="false" />
+<!--              <ua-markdown :source="item.message_content != '' ? item.message_content : item.loading_text" :showLine="false" />-->
 <!--          <u-parse :breaks="true"-->
 <!--          :typographer="true"-->
 <!--          :linkify="true"-->
@@ -83,14 +83,15 @@ import uParse from '@/components/gaoyia-parse/parse.vue'
 import { mapGetters } from "vuex";
 import { storeApi } from "@/api/chat";
 import LoadingView from "@/components/loading-view/loading-view.vue";
-import UaMarkdown from "../ua-markdown/ua-markdown.vue";
-// import VueMarkdown from "vue-markdown";
+// import UaMarkdown from "../ua-markdown/ua-markdown.vue";
+import VueMarkdown from "vue-markdown";
 export default {
   name: "chat-detail-view",
   components: {
-    UaMarkdown,
+    // UaMarkdown,
     LoadingView,
     uParse,
+    VueMarkdown
   },
   props: {
     item: {
